@@ -1,0 +1,18 @@
+{
+  "name": "hain-plugin-wiki",
+  "version": "0.1.0",
+  "description": "A Hain plugin to search Wikipedia",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haroonrafi/hain-plugin-wiki.git"
+  },
+  "keywords": [
+    "hain-0.6.0"
+  ],
+  "author": "Haroon Rafi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haroonrafi/hain-plugin-wiki/issues"
+  },
+  "homepage": "https://github.com/haroonrafi/hain-plugin-wiki#readme"
+}

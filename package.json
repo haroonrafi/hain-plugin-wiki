@@ -14,5 +14,11 @@
   "bugs": {
     "url": "https://github.com/haroonrafi/hain-plugin-wiki/issues"
   },
-  "homepage": "https://github.com/haroonrafi/hain-plugin-wiki#readme"
+  "homepage": "https://github.com/haroonrafi/hain-plugin-wiki#readme",
+  "hain": {
+    "prefix": "/wiki",
+    "usage": "type /wiki followed by a search term",
+    "icon": "#fab fa-wikipedia-w",
+    "redirect": "/wiki"
+  }
 }

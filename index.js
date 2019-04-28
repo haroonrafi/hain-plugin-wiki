@@ -76,7 +76,8 @@ module.exports = (pluginContext) => {
   function renderPreview(id, payload, render) {
     render(
       `<html>
-        <body style="color:#fff; overflow: hidden;">
+        <head>
+          <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
           <style>
             body {
               font-family: 'Roboto', Helvetica, Arial, sans-serif;
@@ -110,6 +111,8 @@ module.exports = (pluginContext) => {
               box-shadow: 0 1px 0 rgba(10, 12, 14, 0.1), 0 0 0 1px white inset;
             }
           </style>
+        </head>
+        <body style="color:#fff; overflow: hidden;">
           ${payload.html}
           <div class="read-more"><span>Press <span class="kbd">enter</span> to view full article</span></div>
         </body>

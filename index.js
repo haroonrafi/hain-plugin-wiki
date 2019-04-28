@@ -77,41 +77,41 @@ module.exports = (pluginContext) => {
     render(
       `<html>
         <body style="color:#fff; overflow: hidden;">
-          <script>
-            let scrollPos = 0, scrollMax, interval;
-            const scrollSpeed = 0.25,
-                  timeToStart = 7000,
-                  timeToReset = 15000;
-
-            function queueScroll() {
-              if(document.body.scrollHeight > window.innerHeight) {
-                scrollMax = document.body.scrollHeight - window.innerHeight;
-                setTimeout(startScroll, timeToStart);
-              }
+          <style>
+            body {
+              font-family: 'Roboto', Helvetica, Arial, sans-serif;
+              line-height: 1.5;
             }
 
-            function startScroll() {
-              interval = setInterval(doScroll, 1000/30);
+            .read-more {
+              position: fixed;
+              width: 100%;
+              padding: 8em 1em 1em;
+              background-color: none;
+              background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1) 70%);
+              color: #ddd;
+              bottom: 0;
+              left: 0;
+              text-align: center;
+              font-weight: 400;
+              font-size: 12px;
             }
 
-            function doScroll() {
-              scrollPos += scrollSpeed;
-              window.scrollTo(0, Math.round(scrollPos));
-              if(scrollPos >= scrollMax) {
-                clearInterval(interval);
-                setTimeout(resetScroll, timeToReset);
-              }
+            .read-more > span {
+              opacity: 0.8;
             }
 
-            function resetScroll() {
-              window.scrollTo(0, 0);
-              scrollPos = 0;
-              queueScroll();
+            .kbd {
+              color: #888;
+              background: #eee;
+              border: 1px solid #adb3b9;
+              border-radius: 2px;
+              padding: .2em;
+              box-shadow: 0 1px 0 rgba(10, 12, 14, 0.1), 0 0 0 1px white inset;
             }
-
-            window.addEventListener('load', queueScroll);
-          </script>
+          </style>
           ${payload.html}
+          <div class="read-more"><span>Press <span class="kbd">enter</span> to view full article</span></div>
         </body>
       </html>`
     );

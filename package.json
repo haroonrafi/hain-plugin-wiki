@@ -20,5 +20,8 @@
     "usage": "type /wiki followed by a search term",
     "icon": "#fab fa-wikipedia-w",
     "redirect": "/wiki"
+  },
+  "dependencies": {
+    "got": "^9.6.0"
   }
 }

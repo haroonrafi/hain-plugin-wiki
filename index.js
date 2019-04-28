@@ -84,7 +84,7 @@ module.exports = (pluginContext) => {
               line-height: 1.5;
             }
 
-            .read-more {
+            .read-more--container {
               position: fixed;
               width: 100%;
               padding: 8em 1em 1em;
@@ -98,9 +98,7 @@ module.exports = (pluginContext) => {
               font-size: 12px;
             }
 
-            .read-more > span {
-              opacity: 0.8;
-            }
+            .read-more--text { opacity: 0.8; }
 
             .kbd {
               color: #888;
@@ -113,8 +111,15 @@ module.exports = (pluginContext) => {
           </style>
         </head>
         <body style="color:#fff; overflow: hidden;">
+
           ${payload.html}
-          <div class="read-more"><span>Press <span class="kbd">enter</span> to view full article</span></div>
+
+          <div class="read-more--container">
+            <span class="read-more--text">
+              Press <span class="kbd">enter</span> to view full article
+            </span>
+          </div>
+
         </body>
       </html>`
     );

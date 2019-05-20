@@ -1,6 +1,6 @@
 {
   "name": "hain-plugin-wiki",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A Hain plugin to search Wikipedia",
   "repository": {
     "type": "git",

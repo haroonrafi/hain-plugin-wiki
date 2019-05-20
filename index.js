@@ -81,15 +81,31 @@ module.exports = (pluginContext) => {
             body {
               font-family: 'Roboto', Helvetica, Arial, sans-serif;
               line-height: 1.5;
+              background: transparent;
+              overflow: hidden;
+            }
+            
+            .result-content--container {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              
+              -webkit-mask-image: -webkit-gradient(
+                linear, left top, left bottom, 
+                color-stop(0.00,  rgba(0,0,0,1)),
+                color-stop(0.60,  rgba(0,0,0,1)),
+                color-stop(0.95,  rgba(0,0,0,0)),
+                color-stop(1.00,  rgba(0,0,0,0)),
+                from(rgba(0,0,0,1)), to(rgba(0,0,0,0))
+              );
             }
 
             .read-more--container {
               position: fixed;
               width: 100%;
               padding: 8em 1em 1em;
-              background-color: none;
-              background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1) 70%);
-              color: #ddd;
               bottom: 0;
               left: 0;
               text-align: center;
@@ -108,10 +124,23 @@ module.exports = (pluginContext) => {
               box-shadow: 0 1px 0 rgba(10, 12, 14, 0.1), 0 0 0 1px white inset;
             }
           </style>
-        </head>
-        <body style="color:#fff; overflow: hidden;">
+          <script>
+            window.addEventListener('load', () => {
+              if (parent) {
+                const parentColorEl = 
+                  [ ...parent.document.body.querySelectorAll('[style*="color"]') ]
+                    .find(el => el.style.color && el.style.color.length);
 
-          ${payload.html}
+                if(parentColorEl) document.body.style.color = parentColorEl.style.color;
+              }
+            });
+          </script>
+        </head>
+        <body>
+
+          <div class="result-content--container">
+            ${payload.html}
+          </div>
 
           <div class="read-more--container">
             <span class="read-more--text">

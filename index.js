@@ -1,8 +1,7 @@
 'use strict';
 
 const got = require('got');
-
-const searchCache = new Map();
+const searchCache = require('./search-cache');
 
 const wikiLanguage = 'en';
 
@@ -52,7 +51,7 @@ async function fetchResults(searchTerm) {
 
 module.exports = (pluginContext) => {
   function startup() {
-    // you can do some preparations here
+    searchCache.create();
   }
  
   async function search(query, res) {
